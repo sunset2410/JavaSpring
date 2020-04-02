@@ -1,0 +1,26 @@
+1. cài jdk-8u231-windows-x64 vào "C:\Java\jdk8"
+2 cài jre vào "C:\Java\jre8"
+3. extract eclipse "eclipse-jee-2019-09-R-win32-x86_64" to :\Java\eclipse"
+4 cài tomcat to "C:\Java\tomcat-8.5.50"
+5 extract mysql to "C:\Java\mysql"
+6. cài đặt MySQL Workbench 8.0 CE to view databaseư
+
+7.setup config and run mysql
+- run cmd in folder "C:\Java\mysql\bin"
+- run "mysqld --initialize --console"
+- run "mysqld --console"
+
+pass to view  on MySQL workbench 
+service:  Mysql@127.0.0.1:3306
+user: root
+pass: admin
+
+https://tech.bizflycloud.vn/mysql-workbench-la-gi-20181009105241884.htm
+
+8 test:
+
+build   project  and type  in  web  browser:
+"http://localhost:8080/city/getall"
+"http://localhost:8080/city/2"
+
+
