@@ -7,6 +7,6 @@
 <title>admin home</title>
 </head>
 <body>
-	<H1>MY NAME ADMIN</H1>
+	<H1>${model_admin.userName}</H1>
 </body>
 </html>
