@@ -21,10 +21,12 @@ public class AdminHomeController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		
-		UserModel userModel = new UserModel();
-		userModel.setUserName("Hello World admin home");
-
-		req.setAttribute("model_admin", userModel);
+		/*
+		 * UserModel userModel = new UserModel();
+		 * userModel.setUserName("Hello World admin home");
+		 * req.setAttribute("model_admin", userModel);
+		 */
+		
 		RequestDispatcher rd  = req.getRequestDispatcher("views/admin/admin_home.jsp");
 		rd.forward(req, resp);	
 	}
