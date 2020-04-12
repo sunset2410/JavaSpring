@@ -9,19 +9,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserModel {
+@NoArgsConstructor
+public class RoleModel {
 	private Long id;
-	private String userName;
-	private String fullName;
-	private String password;
-	private int status;
-	private Long roleId;
+	private String name;
+	private String code;
 	private Timestamp createDate;
 	private Timestamp modifiedDate;
 	private String createBy;
 	private String modifiedBy;
-	
 	
 }

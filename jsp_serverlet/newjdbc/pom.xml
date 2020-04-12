@@ -14,6 +14,8 @@
 		<servlet.api.version>3.1.0</servlet.api.version>
 		<jsp.api.version>2.0</jsp.api.version>
 		<sitemesh.version>2.4.2</sitemesh.version>
+		<mysql.version>8.0.18</mysql.version>
+		<weld-servlet.version>1.1.0.Final</weld-servlet.version>
 	</properties>
 
 	<dependencies>
@@ -52,6 +54,21 @@
 			<version>2.4.2</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.18</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+
+		
 	</dependencies>
 
 	<build>
