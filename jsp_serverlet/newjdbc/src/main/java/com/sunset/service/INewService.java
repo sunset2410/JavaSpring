@@ -7,5 +7,6 @@ import com.sunset.model.NewsModel;
 public interface INewService {
 	
 	List<NewsModel> findByCategoryId(Long  categoryId);
+	NewsModel save(NewsModel newsModel);
 
 }

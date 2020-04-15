@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sunset.model.CategoryModel;
+import com.sunset.model.NewsModel;
 import com.sunset.service.ICategoryService;
 import com.sunset.service.INewService;
 
@@ -28,19 +29,21 @@ public class HomeController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// Long categoryId =1L;
-		// List<NewsModel> list = newService.findByCategoryId(categoryId);
-		// System.out.print("chieu:"+ list.get(0).getTitle());
-		// req.setAttribute("news", newService.findByCategoryId(categoryId));
-
-		/*
-		 * List<CategoryModel> list = categoryService.findAll();
-		 * 
-		 * for (int i = 0; i < list.size() - 1; i++) { System.out.print("chieu1: "+
-		 * list.get(i).getName()); }
-		 */
-
+		
+		//
+		Long categoryId = 1L;
+		List<NewsModel> list = newService.findByCategoryId(categoryId);
+		System.out.print("chieu:" + list.get(0).getTitle());
+		req.setAttribute("news", newService.findByCategoryId(categoryId));
+		//
+		List<CategoryModel> list2 = categoryService.findAll();
+		for (int i = 0; i < list2.size() - 1; i++) {
+			System.out.print("chieu1: " + list2.get(i).getName());
+		}
 		req.setAttribute("categories", categoryService.findAll());
+		
+		
+		
 		RequestDispatcher rd = req.getRequestDispatcher("views/web/home.jsp");
 		rd.forward(req, resp);
 
