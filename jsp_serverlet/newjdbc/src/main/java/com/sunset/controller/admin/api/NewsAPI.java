@@ -31,15 +31,14 @@ public class NewsAPI extends HttpServlet{
 		resp.setContentType("application/json");
 		JSONObject jsonObject = HttpUtils.toJSONObject(req.getReader());
 		NewsModel newsModel = new NewsModel();
-		newsModel.setCategoryId((Long)jsonObject.get("categoryId"));
-		System.out.print("chieu test setCategoryId: "+ newsModel.getCategoryId());
+		newsModel.setCategoryId((Long)jsonObject.get("categoryid"));
+		System.out.print("chieu test setCategoryid: "+ newsModel.getCategoryId());
 		newsModel.setTitle(jsonObject.get("title").toString());
 		newsModel.setContent(jsonObject.get("content").toString());
 		
 		System.out.print("chieu test: "+ newsModel);
 		newsModel  =  newsServvice.save(newsModel);
-		
-		
+			
 	}
 	
 	private void doDete() {

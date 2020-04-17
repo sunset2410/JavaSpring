@@ -75,6 +75,8 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 					statement.setInt(index, (Integer) parameter);
 				} else if (parameter instanceof Timestamp) {
 					statement.setTimestamp(index, (Timestamp) parameter);
+				} else {
+					statement.setString(index, null);
 				}
 			}
 		} catch (SQLException e) {
@@ -82,7 +84,6 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 		}
 	}
 
-	
 	@Override
 	public Long insert(String sql, Object... parameters) {
 		Connection connection = null;
@@ -127,6 +128,4 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 		return null;
 	}
 
-	
-	
 }
