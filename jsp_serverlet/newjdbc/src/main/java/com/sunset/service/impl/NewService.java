@@ -48,6 +48,14 @@ public class NewService implements INewService{
 		newDao.update(updateNew);
 		return newDao.findOne(updateNew.getId());
 	}
+
+	@Override
+	public void delete(long ids) {
+		//for(long id: ids)
+		{
+			newDao.delete(ids);
+		}		
+	}
 	
 
 }

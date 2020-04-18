@@ -12,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public abstract class AbstractModel {
 	private Long id;	
+	private long[] ids;
 	private Timestamp createdDate;
 	private Timestamp modifiedDate;
 	private String createdBy;
