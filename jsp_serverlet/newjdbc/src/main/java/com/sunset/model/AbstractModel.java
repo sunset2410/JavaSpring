@@ -12,8 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public abstract class AbstractModel {
 	private Long id;	
-	private Timestamp createDate;
+	private Timestamp createdDate;
 	private Timestamp modifiedDate;
-	private String createBy;
+	private String createdBy;
 	private String modifiedBy;
 }

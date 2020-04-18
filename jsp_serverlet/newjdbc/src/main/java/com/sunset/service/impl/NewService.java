@@ -27,11 +27,27 @@ public class NewService implements INewService{
 
 	@Override
 	public NewsModel save(NewsModel newsModel) {
-		newsModel.setCreateDate(new Timestamp(System.currentTimeMillis()));
+		newsModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
 		//CategoryModel category = categoryDAO.findOneByCode(newsModel.getCategoryCode());
 		//newsModel.setCategoryId(category.getId());
 		Long newId = newDao.save(newsModel);
 		return newDao.findOne(newId);
 	}
+	
+	
+	@Override
+	public NewsModel update(NewsModel updateNew) {
+		NewsModel oldNew = newDao.findOne(updateNew.getId());
+		
+		updateNew.setCreatedDate(oldNew.getCreatedDate());
+		updateNew.setCreatedBy(oldNew.getCreatedBy());
+		updateNew.setModifiedDate(new Timestamp(System.currentTimeMillis()));
+		
+		//CategoryModel category = categoryDAO.findOneByCode(updateNew.getCategoryCode());
+		//updateNew.setCategoryId(category.getId());
+		newDao.update(updateNew);
+		return newDao.findOne(updateNew.getId());
+	}
+	
 
 }
