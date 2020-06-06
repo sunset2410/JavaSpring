@@ -10,12 +10,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewsModel extends AbstractModel	{
-	private  String  title;
-	private  String thumbnail;
-	private String shortDescription;
-	private String content;
-	private  Long categoryId;
-	private String categoryCode;
+	private  String  title = "";
+	private  String thumbnail  = "";
+	private String shortDescription  = "";
+	private String content = "";
+	private  Long categoryId =0L;
+	private String categoryCode = "";
 	
 	
 }

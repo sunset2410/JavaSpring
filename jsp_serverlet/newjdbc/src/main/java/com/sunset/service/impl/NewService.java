@@ -53,6 +53,8 @@ public class NewService implements INewService{
 	public void delete(long ids) {
 		//for(long id: ids)
 		{
+			// delete comments  of news before delete news
+			// implement
 			newDao.delete(ids);
 		}		
 	}
