@@ -29,7 +29,8 @@
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script
-	src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
+	src="<c:url value='/template/paging/jquery.twbsPagination.js' />">	
+</script>
 <script src="<c:url value='/ckeditor/ckeditor.js' />"></script>
 </head>
 
@@ -38,21 +39,20 @@
 	<%@ include file="/common/admin/header.jsp"%>
 	<!-- header -->
 
-
 	<div class="main-container" id="main-container">
 		<script type="text/javascript">
-				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			try {
+				ace.settings.check('main-container', 'fixed')
+			} catch (e) {
+			}
 		</script>
-		
+
 		<!-- header -->
 		<%@ include file="/common/admin/menu.jsp"%>
 		<!-- header -->
 
-
-		
 		<!-- body -->
-		<dec:body/>
-
+		<dec:body />
 
 		<!-- footer -->
 		<%@ include file="/common/admin/footer.jsp"%>
@@ -63,7 +63,6 @@
 			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 		</a>
 	</div>
-
 
 	<script
 		src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
@@ -86,11 +85,9 @@
 	<script src="<c:url value='/template/admin/assets/js/ace.min.js' />"></script>
 	<script
 		src="<c:url value='/template/admin/assets/js/bootstrap.min.js'/>"></script>
-
 	<!-- page specific plugin scripts -->
 	<script
 		src="<c:url value='/template/admin/assets/js/jquery-ui.min.js'/>"></script>
 </body>
-
 
 </html>
