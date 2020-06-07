@@ -40,10 +40,11 @@
 				Quản lý bài viết <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
-				<li><a
-					href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
+				<li>
+					<a href='<c:url value ="/admin-new-list" />'>
 						<i class="menu-icon fa fa-caret-right"></i> DS bài viết
-				</a> <b class="arrow"></b></li>
+				    </a> 
+				   <b class="arrow"></b></li>
 			</ul></li>
 	</ul>
 	<div class="sidebar-toggle sidebar-collapse">
