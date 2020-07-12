@@ -59,4 +59,13 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+
+	@Override
+	public List<NewsModel> findAll() {		
+		List<NewsModel> results = new ArrayList<NewsModel>();
+		String sql = "SELECT * FROM news";		
+		return query(sql, new NewMapper());
+	}
 }

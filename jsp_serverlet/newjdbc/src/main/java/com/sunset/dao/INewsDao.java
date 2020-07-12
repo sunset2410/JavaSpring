@@ -12,5 +12,7 @@ public interface INewsDao extends IGenericDAO<NewsModel>  {
 	void update(NewsModel updateNew);
 	void delete(long id);
 	//List<NewsModel> findAll(Pageble pageble);
-	int getTotalItem();
+	int getTotalItem();	
+	List<NewsModel> findAll();
+	
 }

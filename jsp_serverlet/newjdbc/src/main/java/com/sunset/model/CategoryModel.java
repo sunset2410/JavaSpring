@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryModel extends AbstractModel{
+public class CategoryModel extends AbstractModel<CategoryModel>{
 	private String name;
 	private String code;
 		

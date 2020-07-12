@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewsModel extends AbstractModel	{
+public class NewsModel extends AbstractModel<NewsModel>	{
 	private  String  title = "";
 	private  String thumbnail  = "";
 	private String shortDescription  = "";

@@ -12,11 +12,10 @@
 
 	<div class="row">
 		<div class="col-lg-3">
-			<h1 class="my-4">sản phẩm</h1>
+			<h1 class="my-4">Sản Phẩm</h1>
 			<div class="list-group">
 				<a href="#" class="list-group-item">Category 1</a> 
 				<a href="#" class="list-group-item">Category 2</a> 
-				<a href="#" class="list-group-item">Category 3</a>
 			</div>
 		</div>
 		<!-- /.col-lg-3 -->
@@ -34,11 +33,11 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
+						<img class="d-block img-fluid" src="https://atlantisthemes.com/wp-content/uploads/2016/09/Atlantis-Featured-Image.png"
 							alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
+						<img class="d-block img-fluid" src="https://www.petcity.vn/media/product/496_2_1376385268_maysaycs2400.jpg"
 							alt="Second slide">
 					</div>
 					<div class="carousel-item">
@@ -81,7 +80,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
+							src="https://drive.google.com/file/d/1IElKMtxKojCKAFXc4Cbf4Lwbc14cJAdB/view" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Item Two</a>
@@ -120,7 +119,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
+							src="https://drive.google.com/file/d/1IElKMtxKojCKAFXc4Cbf4Lwbc14cJAdB/view" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Item Four</a>

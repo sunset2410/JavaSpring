@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserModel {
+public class UserModel extends AbstractModel<UserModel>{
 	private Long id;
 	private String userName;
 	private String fullName;

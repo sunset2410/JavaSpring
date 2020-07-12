@@ -2,12 +2,9 @@ package com.sunset.service.impl;
 
 import java.sql.Timestamp;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import com.sunset.dao.ICategoryDAO;
 import com.sunset.dao.INewsDao;
-import com.sunset.model.CategoryModel;
 import com.sunset.model.NewsModel;
 import com.sunset.service.INewService;
 
@@ -58,6 +55,16 @@ public class NewService implements INewService{
 			newDao.delete(ids);
 		}		
 	}
-	
 
+	@Override
+	public List<NewsModel> findAll() {
+		return newDao.findAll();
+	}
+	
 }
+
+
+
+
+
+

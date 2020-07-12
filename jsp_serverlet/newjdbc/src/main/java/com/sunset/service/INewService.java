@@ -10,5 +10,6 @@ public interface INewService {
 	NewsModel save(NewsModel newsModel);
 	NewsModel update(NewsModel updateNew);
 	void delete(long ids);
+	List<NewsModel> findAll();
 
 }

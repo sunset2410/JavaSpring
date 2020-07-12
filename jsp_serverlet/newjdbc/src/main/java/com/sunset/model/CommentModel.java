@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentModel extends AbstractModel{
+public class CommentModel extends AbstractModel<CommentModel> {
 	private String content;
 	private Long userId;
 	private Long newsId;

@@ -13,13 +13,14 @@
 
 <body>
 	<div class="main-content">
-		<form action="<c:url value='/admin-new'/>" id="formSubmit"
-			method="get">
+		<form action="<c:url value='/admin-new'/>" id="formSubmit" method="get">
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Trang
-								chủ</a></li>
+						<li>
+						<i class="ace-icon fa fa-home home-icon"></i> 
+						<a href="#">Trang chủ</a>
+						</li>
 					</ul>
 					<!-- /.breadcrumb -->
 				</div>
@@ -28,26 +29,21 @@
 						<div class="col-xs-12">
 							<div class="col-xs-12">
 								<div class="table-responsive">
+									<img src="/images/a.PNG" />
 									<table class="table">
 										<thead>
 											<tr>
-												<th scope="col">Ten bai viet</th>
+												<th scope="col">Ten san pham</th>
 												<th scope="col">Mo ta ngan</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody>	
+											<c:forEach var ="item" items="${model.listResult}">
 											<tr>
-												<td>Mark</td>
-												<td>Otto</td>
+											<td> ${item.title}</td>
+											<td> ${item.content}</td>
 											</tr>
-											<tr>
-												<td>Jacob</td>
-												<td>Thornton</td>
-											</tr>
-											<tr>
-												<td>Larry</td>
-												<td>the Bird</td>
-											</tr>
+											</c:forEach>									
 										</tbody>
 									</table>
 									<ul class="pagination" id="pagination"></ul>
@@ -62,10 +58,12 @@
 	<script type="text/javascript">
 		$(function () {
 			window.pagObj = $('#pagination').twbsPagination({
-				totalPages: 20,
-				visiblePages: 7,
+				totalPages: 10,
+				visiblePages: 5,
 				onPageClick: function (event, page) {
-					console.info(page + ' (from options)');
+					
+					${'#formSubmit'}.submit();
+					//console.info(page + ' (from options)');
 				}
 			}).on('page', function (event, page) {
 				console.info(page + ' (from event listening)');
