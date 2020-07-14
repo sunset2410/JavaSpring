@@ -33,13 +33,19 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="https://atlantisthemes.com/wp-content/uploads/2016/09/Atlantis-Featured-Image.png"
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/mayhut1_900_350.png"
 							alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="https://www.petcity.vn/media/product/496_2_1376385268_maysaycs2400.jpg"
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/mayhut2_900_350.jpg"
 							alt="Second slide">
 					</div>
+					
+					<div class="carousel-item">
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/logo_900_350.jpg"
+							alt="Second slide">
+					</div>
+					
 					<div class="carousel-item">
 						<img class="d-block img-fluid" src="http://placehold.it/900x350"
 							alt="Third slide">

@@ -9,6 +9,7 @@
 </head>
 <body>
 	
+	 <img src="${pageContext.request.contextPath}/images/baohanh.jpg">
 	
 </body>
 </html>
