@@ -1,0 +1,18 @@
+C:\Java\apache-maven-3.6.0
+C:\Java\eclipse
+C:\Java\jdk8
+C:\Java\jre8
+C:\Java\mysql
+C:\Java\Project
+C:\Java\tomcat-8.5.50
+
+
+build jsp serverlet
+
+1.right mouse click to project -> show in local terminal  -> terminal  ->
+
+mvn clean install -> right mouse  click  to project -> maven  ->  update project -> ok
+
+-> right mouse click to project ->  run as ->  run on server 
+
+
