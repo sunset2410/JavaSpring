@@ -9,7 +9,7 @@
 </head>
 <body>
 	
-	 <img src="${pageContext.request.contextPath}/images/baohanh.jpg">
+	 <img id="img_about" src="${pageContext.request.contextPath}/images/commons/baohanh.jpg" width="1000px" height="500px">
 	
 </body>
 </html>
