@@ -37,12 +37,15 @@
 	<ul class="nav nav-list">
 		<li><a href="#" class="dropdown-toggle"> <i
 				class="menu-icon fa fa-list"></i> <span class="menu-text"></span>
-				Quản lý bài viết <b class="arrow fa fa-angle-down"></b>
+				Quản lý sản phẩm <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
 				<li>
 					<a href='<c:url value ="/admin-new" />'>
-						<i class="menu-icon fa fa-caret-right"></i> DS bài viết
+						<i class="menu-icon fa fa-caret-right"></i> DS sản phẩm
+				    </a> 
+				    <a href='<c:url value ="/admin-upload-product" />'>
+						<i class="menu-icon fa fa-caret-right"></i> Thêm sản phẩm
 				    </a> 
 				   <b class="arrow"></b></li>
 			</ul></li>

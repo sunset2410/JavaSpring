@@ -8,7 +8,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Danh sách bài viết</title>
+<title>Danh sách sản phẩm</title>
 </head>
 
 <body>
@@ -29,7 +29,6 @@
 						<div class="col-xs-12">
 							<div class="col-xs-12">
 								<div class="table-responsive">
-									<img src="/images/a.PNG" />
 									<table class="table">
 										<thead>
 											<tr>
