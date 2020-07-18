@@ -12,10 +12,11 @@
 
 	<div class="row">
 		<div class="col-lg-3">
-			<h1 class="my-4" style="color:blue;">Sản Phẩm</h1>
-			<div class="list-group">
-				<a href="#" class="list-group-item">Máy sấy lông chó mèo</a> 
-				<a href="#" class="list-group-item">Camera các loại</a> 
+			<h1 class="my-41" style="color:blue; font-size: 30px; margin-top: 50px; margin-left: 20px">Sản Phẩm</h1>
+			<div class="list-group1">
+				<c:forEach var ="item" items="${categories}">
+					<a href="#" class="list-group-item">${item.name}</a> 
+				</c:forEach>		
 			</div>
 		</div>
 		<!-- /.col-lg-3 -->
@@ -23,6 +24,7 @@
 
 		<div class="col-lg-9">
 
+			<!-- slide show -->
 			<div id="carouselExampleIndicators" class="carousel slide my-4"
 				data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -30,7 +32,7 @@
 					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 				</ol>
-				<div class="carousel-inner" role="listbox" style="border-style: groove; border-color: gray; border-width: 1px">
+				<div class="carousel-inner" role="listbox">
 				
 					<div class="carousel-item active">
 						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/slideshows/mayhut1_900_350.png"
@@ -61,20 +63,20 @@
 			
 			<div id="center_div" style="height: 20px"></div>
 			
-
+			<!-- product list -->
 			<div class="row">
-			
-				<div class="col-lg-4 col-md-6 mb-4">
+
+				<c:forEach var ="item" items="${model.listResult}">
+					<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top" style="border-style: groove; border-color: gray; border-width: 1px"
+						<a href="#"><img class="card-img-top" style="border-style: solid; border-color: WhiteSmoke; border-width: 2px"
 							src="${pageContext.request.contextPath}/images/products/P1_700_400.png" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Item One</a>
+								<a href="#">${item.title}</a>
 							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
+							<h5>${item.price}</h5>
+							<p class="card-text">${item.shortDescription}</p>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
@@ -82,30 +84,10 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top" style="border-style: groove; border-color: gray; border-width: 1px"
-							src="${pageContext.request.contextPath}/images/products/P2_700_400.png" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Two</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit
-								amet.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
+				</c:forEach>	
+		
 			</div>
 			<!-- /.row -->
-
 
 		</div>
 		<!-- /.col-lg-9 -->

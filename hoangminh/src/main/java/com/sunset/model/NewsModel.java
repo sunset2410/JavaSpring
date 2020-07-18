@@ -16,6 +16,6 @@ public class NewsModel extends AbstractModel<NewsModel>	{
 	private String content = "";
 	private  Long categoryId =0L;
 	private String categoryCode = "";
-	
+	private String price = "";
 	
 }

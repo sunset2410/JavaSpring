@@ -45,10 +45,6 @@ public class HttpUtils {
 		    JSONParser parser = new JSONParser(); 
 		    JSONObject json = (JSONObject) parser.parse(sb.toString());
 
-		    //System.out.print("\n chieu test: "+ json.get("title"));
-		    //System.out.print("\n chieu test: "+ json.get("content"));
-		    //System.out.print("\n chieu test: "+ json.get("categoryId"));
-		    
 		    return  json;
 		} catch (IOException e) {
 			System.out.print(e.getMessage());

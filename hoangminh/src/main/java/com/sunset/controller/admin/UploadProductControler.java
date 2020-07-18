@@ -3,6 +3,7 @@ package com.sunset.controller.admin;
 import java.io.File;
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import com.sunset.model.NewsModel;
+import com.sunset.service.INewService;
 
 @WebServlet(urlPatterns = { "/admin-upload-product" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
@@ -20,6 +23,9 @@ public class UploadProductControler extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	public static final String SAVE_DIRECTORY = "uploadDir";
+	
+	@Inject
+	private INewService newsServvice;
 
 	public UploadProductControler() {
 		super();
@@ -35,9 +41,12 @@ public class UploadProductControler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			
+			request.setCharacterEncoding("utf-8");			
 			String title = request.getParameter("title");
 			String shortdescription = request.getParameter("shortdescription");
 			String content = request.getParameter("content");
+			String price = request.getParameter("price");
 			System.out.println("title: " + title);
 
 			// Đường dẫn tuyệt đối tới thư mục gốc của web app.
@@ -58,11 +67,12 @@ public class UploadProductControler extends HttpServlet {
 				fileSaveDir.mkdir();
 			}
 
+			String filePath ="";
 			// Danh mục các phần đã upload lên (Có thể là nhiều file).
 			for (Part part : request.getParts()) {
 				String fileName = extractFileName(part);
 				if (fileName != null && fileName.length() > 0) {
-					String filePath = fullSavePath + File.separator + fileName;
+					filePath = fullSavePath + File.separator + fileName;
 					System.out.println("Write attachment to file: " + filePath);
 
 					// Ghi vào file.
@@ -70,6 +80,17 @@ public class UploadProductControler extends HttpServlet {
 				}
 			}
 
+			//----- save to database---------------------------//			
+			NewsModel newsModel = new NewsModel();
+			newsModel.setCategoryId(1L);
+			newsModel.setTitle(title);
+			newsModel.setContent(content);
+			newsModel.setThumbnail(filePath);
+			newsModel.setShortDescription(shortdescription);
+			newsModel.setPrice(price);
+			System.out.print("chieu test: " + newsModel);
+			newsModel = newsServvice.save(newsModel);
+			
 			// Upload thành công.
 			response.sendRedirect(request.getContextPath() + "/admin-upload-result");
 		} catch (Exception e) {

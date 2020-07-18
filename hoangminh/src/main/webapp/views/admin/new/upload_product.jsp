@@ -18,14 +18,28 @@
 			action="${pageContext.request.contextPath}/admin-upload-product"
 			enctype="multipart/form-data">
 
-			-Tên sản phẩm: <br /> <input type="text" name="title" size="100" />
-			<br /> <br /> 
-			-Mô tả ngắn: <br /> <input type="text"
-				name="shortdescription" size="100" /> <br /> <br /> 
-			-Chi tiết sản phẩm: 
-			<br /> <input type="text" name="content" size="100" />
-			<br /> <br /> -Chọn hình ảnh mô tả của sản phẩm kích thước 700x400:
-			<br /> <input type="file" name="file" /> <br /> <br /> <input
+			- Tên sản phẩm: <br /> <input type="text" name="title" size="100" />
+			<br /> 
+			<br /> 
+			- Giá sản Phẩm (VD: 7.490.000₫):
+			<br /> <input type="text" name="price" size="100" />
+			<br /> 
+			<br /> 
+			- Mô tả ngắn: 
+			<br /> 
+			<textarea style="height: 30px; width: 700px"
+				name="shortdescription" >
+			</textarea>
+			<br /> 
+			<br /> 
+			- Chi tiết sản phẩm: 
+			<br /> 
+			<textarea  name="content"  style="height: 150px; width: 700px">
+			</textarea>			
+			<br />
+			<br /> 
+			- Chọn hình ảnh mô tả của sản phẩm kích thước 700x400:
+			<br /> <input type="file" name="file"/> <br /> <br /> <input
 				type="submit" value="Upload" style="background-color: coral;" />
 		</form>
 
