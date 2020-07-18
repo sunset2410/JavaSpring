@@ -22,7 +22,7 @@ import com.sunset.service.INewService;
 public class UploadProductControler extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	public static final String SAVE_DIRECTORY = "uploadDir";
+	public static final String SAVE_DIRECTORY = "uploadDir/products";
 	
 	@Inject
 	private INewService newsServvice;
@@ -67,12 +67,12 @@ public class UploadProductControler extends HttpServlet {
 				fileSaveDir.mkdir();
 			}
 
-			String filePath ="";
+			String fileName ="";
 			// Danh mục các phần đã upload lên (Có thể là nhiều file).
 			for (Part part : request.getParts()) {
-				String fileName = extractFileName(part);
+				fileName = extractFileName(part);
 				if (fileName != null && fileName.length() > 0) {
-					filePath = fullSavePath + File.separator + fileName;
+					String filePath = fullSavePath + File.separator + fileName;
 					System.out.println("Write attachment to file: " + filePath);
 
 					// Ghi vào file.
@@ -85,7 +85,7 @@ public class UploadProductControler extends HttpServlet {
 			newsModel.setCategoryId(1L);
 			newsModel.setTitle(title);
 			newsModel.setContent(content);
-			newsModel.setThumbnail(filePath);
+			newsModel.setThumbnail(SAVE_DIRECTORY + "/" + fileName);
 			newsModel.setShortDescription(shortdescription);
 			newsModel.setPrice(price);
 			System.out.print("chieu test: " + newsModel);
