@@ -32,14 +32,18 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th scope="col">Ten san pham</th>
-												<th scope="col">Mo ta ngan</th>
+												<th scope="col">Tên sản phẩm</th>
+												<th scope="col">Mô tả ngắn</th>
+												<th scope="col">Giá sản phẩm</th>
+												<th scope="col">Chi tiết</th>
 											</tr>
 										</thead>
 										<tbody>	
 											<c:forEach var ="item" items="${model.listResult}">
 											<tr>
 											<td> ${item.title}</td>
+											<td> ${item.shortDescription}</td>
+											<td> ${item.price}</td>
 											<td> ${item.content}</td>
 											</tr>
 											</c:forEach>									
