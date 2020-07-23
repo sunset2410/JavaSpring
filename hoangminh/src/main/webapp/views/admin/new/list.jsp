@@ -13,14 +13,13 @@
 
 <body>
 	<div class="main-content">
-		<form action="<c:url value='/admin-new'/>" id="formSubmit" method="get">
+		<form action="<c:url value='/admin-new'/>" id="formSubmit"
+			method="get">
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li>
-						<i class="ace-icon fa fa-home home-icon"></i> 
-						<a href="#">Trang chủ</a>
-						</li>
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Trang
+								chủ</a></li>
 					</ul>
 					<!-- /.breadcrumb -->
 				</div>
@@ -36,17 +35,22 @@
 												<th scope="col">Mô tả ngắn</th>
 												<th scope="col">Giá sản phẩm</th>
 												<th scope="col">Chi tiết</th>
+												<th scope="col">Action</th>
 											</tr>
 										</thead>
-										<tbody>	
-											<c:forEach var ="item" items="${model.listResult}">
-											<tr>
-											<td> ${item.title}</td>
-											<td> ${item.shortDescription}</td>
-											<td> ${item.price}</td>
-											<td> ${item.content}</td>
-											</tr>
-											</c:forEach>									
+										<tbody>
+											<c:forEach var="item" items="${model.listResult}">
+												<tr>
+													<td>${item.title}</td>
+													<td>${item.shortDescription}</td>
+													<td>${item.price}</td>
+													<td>${item.content}</td>
+													<td>
+														<a href="${pageContext.request.contextPath}/admin-delete-product?id=${item.id}">Delete</a>
+														<a href="${pageContext.request.contextPath}/admin-update-product?id=${item.id}">Update</a>
+													</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 									<ul class="pagination" id="pagination"></ul>
@@ -73,7 +77,7 @@
 			});
 		});
 	</script>
-	
+
 </body>
 
 </html>

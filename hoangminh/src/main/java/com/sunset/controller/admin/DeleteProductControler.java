@@ -14,43 +14,23 @@ import com.sunset.constant.SystemConstant;
 import com.sunset.model.NewsModel;
 import com.sunset.service.INewService;
 
-@WebServlet(urlPatterns = { "/admin-new" })
-public class NewController extends HttpServlet{
-	private static final long serialVersionUID = -1790227058766144504L;
-
+@WebServlet(urlPatterns = { "/admin-delete-product" })
+public class DeleteProductControler extends HttpServlet{
+	private static final long serialVersionUID = 1L;
+		
 	@Inject	
 	private INewService newService;
 	
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		NewsModel model = new NewsModel();
-		model.setListResult(newService.findAll());
-		req.setAttribute(SystemConstant.Model, model);
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/list.jsp");
+		String id_str = req.getParameter("id");
+		int id = Integer.parseInt(id_str);
+		newService.delete(id);
+		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/delete_result.jsp");
 		rd.forward(req, resp);
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-	
-	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		
-	}
 	
 	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,20 +27,20 @@
 			<br /> 
 			- Mô tả ngắn: 
 			<br /> 
-			<textarea style="height: 30px; width: 700px"
+			<textarea style="height: 35px; width: 740px"
 				name="shortdescription" >
 			</textarea>
 			<br /> 
 			<br /> 
 			- Chi tiết sản phẩm: 
 			<br /> 
-			<textarea  name="content"  style="height: 150px; width: 700px">
+			<textarea  name="content"  style="height: 150px; width: 740px">
 			</textarea>			
 			<br />
 			<br /> 
 			- Chọn hình ảnh mô tả của sản phẩm kích thước 700x400:
 			<br /> <input type="file" name="file"/> <br /> <br /> <input
-				type="submit" value="Upload" style="background-color: coral;" />
+				type="submit" value="Upload" style="background-color: #99FFFF;" />
 		</form>
 
 	</div>
