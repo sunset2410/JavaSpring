@@ -61,6 +61,12 @@ public class NewService implements INewService{
 		return newDao.findAll();
 	}
 	
+	@Override
+	public NewsModel findOne(Long id) {
+		return newDao.findOne(id);
+	}
+	
+	
 }
 
 

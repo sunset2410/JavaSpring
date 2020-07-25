@@ -1,4 +1,4 @@
-package com.sunset.controller.admin;
+package com.sunset.controller.web;
 
 import java.io.IOException;
 
@@ -14,13 +14,15 @@ import com.sunset.constant.SystemConstant;
 import com.sunset.model.NewsModel;
 import com.sunset.service.INewService;
 
-@WebServlet(urlPatterns = { "/admin-update-product" })
-public class UpdateProductControler extends HttpServlet{
+
+@WebServlet(urlPatterns = { "/web-product" })
+public class ProductControler extends HttpServlet{
+	
 	private static final long serialVersionUID = 1L;
-		
+	
 	@Inject	
 	private INewService newService;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id_str = req.getParameter("id");
@@ -30,11 +32,11 @@ public class UpdateProductControler extends HttpServlet{
 		model = newService.findOne(id);
 		req.setAttribute(SystemConstant.Model, model);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/update_product.jsp");
-		rd.forward(req, resp);
-		
+		req.setAttribute(SystemConstant.Model, model);
+		RequestDispatcher rd = req.getRequestDispatcher("views/web/product.jsp");
+		rd.forward(req, resp);		
 	}
 	
 	
-
+	
 }

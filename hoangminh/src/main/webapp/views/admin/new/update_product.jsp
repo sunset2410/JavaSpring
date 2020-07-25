@@ -19,14 +19,17 @@
 			action="${pageContext.request.contextPath}/admin-update-product"
 			enctype="multipart/form-data">
 
-			- Tên sản phẩm: <br /> <input type="text" name="title" size="100" />
-			<br /> <br /> - Giá sản Phẩm (VD: 7.490.000₫): <br /> <input
-				type="text" name="price" size="100" /> <br /> <br /> - Mô tả
-			ngắn: <br />
+			- Tên sản phẩm: <br /> <input type="text" name="title" size="100"
+				value="${model.title}" /> <br /> <br /> - Giá sản Phẩm (VD:
+			7.490.000₫): <br /> <input type="text" name="price"
+				value="${model.price}" size="100" /> <br /> <br /> - Mô tả ngắn:
+			<br />
 			<textarea style="height: 35px; width: 740px" name="shortdescription">
+			${model.shortDescription}
 			</textarea>
 			<br /> <br /> - Chi tiết sản phẩm: <br />
 			<textarea name="content" style="height: 150px; width: 740px">
+			${model.content}
 			</textarea>
 			<br /> <br /> - Chọn hình ảnh mô tả của sản phẩm kích thước
 			700x400: <br /> <input type="file" name="file" /> <br /> <br /> <input
