@@ -30,7 +30,7 @@ public class UpdateProductControler extends HttpServlet{
 		model = newService.findOne(id);
 		req.setAttribute(SystemConstant.Model, model);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/update_product.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/update_product.jsp");
 		rd.forward(req, resp);
 		
 	}

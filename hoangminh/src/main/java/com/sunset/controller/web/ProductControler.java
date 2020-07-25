@@ -33,7 +33,7 @@ public class ProductControler extends HttpServlet{
 		req.setAttribute(SystemConstant.Model, model);
 		
 		req.setAttribute(SystemConstant.Model, model);
-		RequestDispatcher rd = req.getRequestDispatcher("views/web/product.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/web/product.jsp");
 		rd.forward(req, resp);		
 	}
 	

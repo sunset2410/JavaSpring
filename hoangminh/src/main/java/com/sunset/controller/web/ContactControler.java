@@ -15,7 +15,7 @@ public class ContactControler extends HttpServlet{
 	private static final long serialVersionUID = 5140873993273401882L;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
-		RequestDispatcher rd = req.getRequestDispatcher("views/web/contact.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/web/contact.jsp");
 		rd.forward(req, resp);
 	}
 	

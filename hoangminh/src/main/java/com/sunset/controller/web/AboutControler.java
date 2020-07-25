@@ -28,7 +28,7 @@ public class AboutControler extends HttpServlet{
         appPath = appPath.replace('\\', '/');
         System.out.print("chieu test: " + appPath);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("views/web/about.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/web/about.jsp");
 		rd.forward(req, resp);
 	}
 		

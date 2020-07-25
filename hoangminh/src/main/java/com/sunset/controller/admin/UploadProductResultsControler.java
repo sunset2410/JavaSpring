@@ -22,7 +22,7 @@ public class UploadProductResultsControler extends HttpServlet{
 	 
 	 @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/upload_result.jsp");
+		 RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/upload_result.jsp");
 			rd.forward(req, resp);
 	}
 	

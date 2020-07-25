@@ -1,5 +1,5 @@
 <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="margin-top:0px">
     <div class="container">
       <img src="${pageContext.request.contextPath}/images/commons/logo_642_642.jpg" width="50" height="50" margin="10px">
       <a class="navbar-brand" style="margin-left: 10px; color: red" href="#">Công ty TNHH Hoàng Minh</a>

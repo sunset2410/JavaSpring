@@ -25,7 +25,7 @@ public class NewController extends HttpServlet{
 		NewsModel model = new NewsModel();
 		model.setListResult(newService.findAll());
 		req.setAttribute(SystemConstant.Model, model);
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/list.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/list.jsp");
 		rd.forward(req, resp);
 	}
 	

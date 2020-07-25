@@ -26,7 +26,7 @@ public class DeleteProductControler extends HttpServlet{
 		String id_str = req.getParameter("id");
 		int id = Integer.parseInt(id_str);
 		newService.delete(id);
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/delete_result.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/delete_result.jsp");
 		rd.forward(req, resp);
 	}
 	
