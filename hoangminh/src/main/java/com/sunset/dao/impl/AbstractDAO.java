@@ -25,7 +25,6 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 		} catch (ClassNotFoundException | SQLException e) {
 			return null;
 		}
-
 	}
 
 	@Override

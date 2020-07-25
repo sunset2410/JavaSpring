@@ -8,19 +8,18 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Danh sách bài viết</title>
+<title>Danh sách sản phẩm</title>
 </head>
 
 <body>
 	<div class="main-content">
-		<form action="<c:url value='/admin-new'/>" id="formSubmit" method="get">
+		<form action="<c:url value='/admin-new'/>" id="formSubmit"
+			method="get">
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li>
-						<i class="ace-icon fa fa-home home-icon"></i> 
-						<a href="#">Trang chủ</a>
-						</li>
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Trang
+								chủ</a></li>
 					</ul>
 					<!-- /.breadcrumb -->
 				</div>
@@ -29,21 +28,29 @@
 						<div class="col-xs-12">
 							<div class="col-xs-12">
 								<div class="table-responsive">
-									<img src="/images/a.PNG" />
 									<table class="table">
 										<thead>
 											<tr>
-												<th scope="col">Ten san pham</th>
-												<th scope="col">Mo ta ngan</th>
+												<th scope="col">Tên sản phẩm</th>
+												<th scope="col">Mô tả ngắn</th>
+												<th scope="col">Giá sản phẩm</th>
+												<th scope="col">Chi tiết</th>
+												<th scope="col">Action</th>
 											</tr>
 										</thead>
-										<tbody>	
-											<c:forEach var ="item" items="${model.listResult}">
-											<tr>
-											<td> ${item.title}</td>
-											<td> ${item.content}</td>
-											</tr>
-											</c:forEach>									
+										<tbody>
+											<c:forEach var="item" items="${model.listResult}">
+												<tr>
+													<td>${item.title}</td>
+													<td>${item.shortDescription}</td>
+													<td>${item.price}</td>
+													<td>${item.content}</td>
+													<td>
+														<a href="${pageContext.request.contextPath}/admin-delete-product?id=${item.id}">Delete</a>
+														<a href="${pageContext.request.contextPath}/admin-update-product?id=${item.id}">Update</a>
+													</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 									<ul class="pagination" id="pagination"></ul>
@@ -70,7 +77,7 @@
 			});
 		});
 	</script>
-	
+
 </body>
 
 </html>

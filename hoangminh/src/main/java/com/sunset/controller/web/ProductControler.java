@@ -1,4 +1,4 @@
-package com.sunset.controller.admin;
+package com.sunset.controller.web;
 
 import java.io.IOException;
 
@@ -14,43 +14,29 @@ import com.sunset.constant.SystemConstant;
 import com.sunset.model.NewsModel;
 import com.sunset.service.INewService;
 
-@WebServlet(urlPatterns = { "/admin-new" })
-public class NewController extends HttpServlet{
-	private static final long serialVersionUID = -1790227058766144504L;
 
+@WebServlet(urlPatterns = { "/web-product" })
+public class ProductControler extends HttpServlet{
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Inject	
 	private INewService newService;
-	
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		NewsModel model = new NewsModel();
-		model.setListResult(newService.findAll());
-		req.setAttribute(SystemConstant.Model, model);
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/list.jsp");
-		rd.forward(req, resp);
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-	
+
 	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String id_str = req.getParameter("id");
+		Long id = Long.parseLong(id_str);
 		
+		NewsModel model = new NewsModel();
+		model = newService.findOne(id);
+		req.setAttribute(SystemConstant.Model, model);
 		
-		
+		req.setAttribute(SystemConstant.Model, model);
+		RequestDispatcher rd = req.getRequestDispatcher("views/web/product.jsp");
+		rd.forward(req, resp);		
 	}
+	
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-

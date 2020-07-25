@@ -5,11 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>about</title>
+<title>xóa sản phẩm</title>
 </head>
 <body>
-	
-	 <img id="img_about" src="${pageContext.request.contextPath}/images/commons/baohanh.jpg" width="1000px" height="500px">
-	
+
 </body>
 </html>
