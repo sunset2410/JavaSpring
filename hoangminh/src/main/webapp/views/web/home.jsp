@@ -35,16 +35,16 @@
 				<div class="carousel-inner" role="listbox">
 				
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/slideshows/mayhut1_900_350.png"
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/slideshows/1.png"
 							alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/slideshows/mayhut2_900_350.jpg"
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/slideshows/2.png"
 							alt="Second slide">
 					</div>
 					
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/slideshows/logo_900_350.jpg"
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/images/slideshows/3.png"
 							alt="Second slide">
 					</div>
 									
