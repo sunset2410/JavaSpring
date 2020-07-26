@@ -30,20 +30,9 @@ public class UpdateProductControler extends HttpServlet{
 	public UpdateProductControler() {
 		super();
 	}
-	public static final String SAVE_DIRECTORY = "images/products";
 	
 	@Inject
 	private INewService newsServvice;
-	
-	NewsModel model = new NewsModel();
-	
-	@Inject	
-	private INewService newService;
-	
-	public UpdateProductControler() {
-		super();
-	}
-
 	
 	
 	@Override
@@ -51,7 +40,7 @@ public class UpdateProductControler extends HttpServlet{
 		String id_str = req.getParameter("id");
 		Long id = Long.parseLong(id_str);
 
-		model = newService.findOne(id);
+		model = newsServvice.findOne(id);
 		req.setAttribute(SystemConstant.Model, model);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/update_product.jsp");
