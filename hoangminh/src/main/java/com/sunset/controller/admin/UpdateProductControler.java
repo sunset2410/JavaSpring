@@ -23,7 +23,13 @@ maxFileSize = 1024 * 1024 * 10, // 10MB
 maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class UpdateProductControler extends HttpServlet{
 	private static final long serialVersionUID = 1L;
+	public static final String SAVE_DIRECTORY = "images/products";
+	String info = "";
+	NewsModel model = new NewsModel();
 		
+	public UpdateProductControler() {
+		super();
+	}
 	public static final String SAVE_DIRECTORY = "images/products";
 	
 	@Inject
@@ -44,7 +50,7 @@ public class UpdateProductControler extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id_str = req.getParameter("id");
 		Long id = Long.parseLong(id_str);
-		
+
 		model = newService.findOne(id);
 		req.setAttribute(SystemConstant.Model, model);
 		
@@ -55,7 +61,6 @@ public class UpdateProductControler extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 try {
 			
 			request.setCharacterEncoding("utf-8");			
@@ -69,6 +74,9 @@ try {
 			String appPath = request.getServletContext().getRealPath("");
 			appPath = appPath.replace('\\', '/');
 
+			info += "\n appPath:" + appPath;
+
+
 			// Thư mục để save file tải lên.
 			String fullSavePath = null;
 			if (appPath.endsWith("/")) {
@@ -76,6 +84,8 @@ try {
 			} else {
 				fullSavePath = appPath + "/" + SAVE_DIRECTORY;
 			}
+
+			info += "\n fullSavePath:" + fullSavePath;
 
 			// Tạo thư mục nếu nó không tồn tại.
 			File fileSaveDir = new File(fullSavePath);
@@ -133,5 +143,4 @@ try {
 		}
 		return null;
 	}
-
 }

@@ -15,7 +15,7 @@
 </head>
 
 
-<body>
+<body style="margin-top:0px">
 	<!-- header -->
 	<%@ include file="/common/web/header.jsp"%>
 	<!-- header -->

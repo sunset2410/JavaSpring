@@ -19,13 +19,12 @@ import javax.servlet.http.Part;
 
 public class AboutControler extends HttpServlet {
 	private static final long serialVersionUID = -7731335837657590120L;
-
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		// Đường dẫn tuyệt đối tới thư mục gốc của web app.
-		String appPath = req.getServletPath();
-		appPath = appPath.replace('\\', '/');
-		System.out.print("chieu test: " + appPath);
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
+		
+		 // Đường dẫn tuyệt đối tới thư mục gốc của web app.
+        String appPath = req.getServletPath();
+        appPath = appPath.replace('\\', '/');
+        System.out.print("chieu test: " + appPath);
 
 		RequestDispatcher rd = req.getRequestDispatcher("/views/web/about.jsp");
 		rd.forward(req, resp);

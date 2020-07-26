@@ -16,13 +16,15 @@ import com.sunset.model.NewsModel;
 import com.sunset.service.INewService;
 
 @WebServlet(urlPatterns = { "/admin-upload-product" })
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 5, // 5MB
 		maxFileSize = 1024 * 1024 * 10, // 10MB
 		maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class UploadProductControler extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	public static final String SAVE_DIRECTORY = "images/products";
+
+	String info = "";
 	
 	@Inject
 	private INewService newsServvice;
@@ -33,7 +35,7 @@ public class UploadProductControler extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/upload_product.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/upload_product.jsp");
 		rd.forward(req, resp);
 	}
 
@@ -41,8 +43,8 @@ public class UploadProductControler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			
-			request.setCharacterEncoding("utf-8");			
+
+			request.setCharacterEncoding("utf-8");
 			String title = request.getParameter("title");
 			String shortdescription = request.getParameter("shortdescription");
 			String content = request.getParameter("content");
@@ -53,6 +55,8 @@ public class UploadProductControler extends HttpServlet {
 			String appPath = request.getServletContext().getRealPath("");
 			appPath = appPath.replace('\\', '/');
 
+			info += "\n appPath:" + appPath;
+
 			// Thư mục để save file tải lên.
 			String fullSavePath = null;
 			if (appPath.endsWith("/")) {
@@ -61,13 +65,16 @@ public class UploadProductControler extends HttpServlet {
 				fullSavePath = appPath + "/" + SAVE_DIRECTORY;
 			}
 
+			info += "\n fullSavePath:" + fullSavePath;
+
 			// Tạo thư mục nếu nó không tồn tại.
 			File fileSaveDir = new File(fullSavePath);
 			if (!fileSaveDir.exists()) {
+				info += "\n !fileSaveDir.exists():";
 				fileSaveDir.mkdir();
 			}
 
-			String fileName ="";
+			String fileName = "";
 			// Danh mục các phần đã upload lên (Có thể là nhiều file).
 			for (Part part : request.getParts()) {
 				fileName = extractFileName(part);
@@ -77,10 +84,12 @@ public class UploadProductControler extends HttpServlet {
 
 					// Ghi vào file.
 					part.write(filePath);
+					info += "\n filePath:" + filePath;
+
 				}
 			}
 
-			//----- save to database---------------------------//			
+			// ----- save to database---------------------------//
 			NewsModel newsModel = new NewsModel();
 			newsModel.setCategoryId(1L);
 			newsModel.setTitle(title);
@@ -90,18 +99,24 @@ public class UploadProductControler extends HttpServlet {
 			newsModel.setPrice(price);
 			System.out.print("chieu test: " + newsModel);
 			newsModel = newsServvice.save(newsModel);
-			
+
 			// Upload thành công.
 			response.sendRedirect(request.getContextPath() + "/admin-upload-result");
+
+			info += "\n Upload thành công:";
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("errorMessage", "Error: " + e.getMessage());
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/new/upload_product.jsp");
+      
+			request.setAttribute("errorMessage", "Error: " + e.getMessage() + "\n" + info);
+			RequestDispatcher dispatcher = getServletContext()
+					.getRequestDispatcher("/views/admin/new/upload_product.jsp");
+
 			dispatcher.forward(request, response);
 		}
 	}
 
 	private String extractFileName(Part part) {
+		info += "/n extractFileName:";
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
 		for (String s : items) {
