@@ -50,7 +50,7 @@ public class HomeController extends HttpServlet {
 		model.setListResult(newService.findAll());
 		req.setAttribute(SystemConstant.Model, model);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("views/web/home.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
 		rd.forward(req, resp);
 
 	}

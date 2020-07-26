@@ -96,7 +96,7 @@ public class UploadProductControler extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Error: " + e.getMessage());
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("views/admin/new/upload_product.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/new/upload_product.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

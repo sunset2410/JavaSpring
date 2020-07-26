@@ -18,7 +18,7 @@ import com.sunset.model.NewsModel;
 import com.sunset.service.INewService;
 
 @WebServlet(urlPatterns = { "/admin-update-product" })
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 5, // 2MB
 maxFileSize = 1024 * 1024 * 10, // 10MB
 maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class UpdateProductControler extends HttpServlet{
@@ -48,7 +48,7 @@ public class UpdateProductControler extends HttpServlet{
 		model = newService.findOne(id);
 		req.setAttribute(SystemConstant.Model, model);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("views/admin/new/update_product.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/update_product.jsp");
 		rd.forward(req, resp);
 		
 	}
@@ -114,7 +114,7 @@ try {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Error: " + e.getMessage());
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("views/admin/new/upload_product.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/new/upload_product.jsp");
 			dispatcher.forward(request, response);
 		}
 		
