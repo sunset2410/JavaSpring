@@ -22,7 +22,7 @@ import com.sunset.service.INewService;
 public class UploadProductControler extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	public static final String SAVE_DIRECTORY = "uploadDir/products";
+	public static final String SAVE_DIRECTORY = "images/products";
 	
 	@Inject
 	private INewService newsServvice;
@@ -96,7 +96,7 @@ public class UploadProductControler extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Error: " + e.getMessage());
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("views/admin/new/upload_product.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/new/upload_product.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
