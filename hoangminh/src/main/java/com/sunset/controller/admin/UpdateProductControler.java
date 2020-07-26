@@ -19,51 +19,40 @@ import com.sunset.service.INewService;
 
 @WebServlet(urlPatterns = { "/admin-update-product" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 5, // 2MB
-maxFileSize = 1024 * 1024 * 10, // 10MB
-maxRequestSize = 1024 * 1024 * 50) // 50MB
-public class UpdateProductControler extends HttpServlet{
+		maxFileSize = 1024 * 1024 * 10, // 10MB
+		maxRequestSize = 1024 * 1024 * 50) // 50MB
+public class UpdateProductControler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String SAVE_DIRECTORY = "images/products";
 	String info = "";
 	NewsModel model = new NewsModel();
-		
-	public UpdateProductControler() {
-		super();
-	}
-	public static final String SAVE_DIRECTORY = "images/products";
-	
-	@Inject
-	private INewService newsServvice;
-	
-	NewsModel model = new NewsModel();
-	
-	@Inject	
-	private INewService newService;
-	
+
 	public UpdateProductControler() {
 		super();
 	}
 
-	
-	
+	@Inject
+	private INewService newsServvice;
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id_str = req.getParameter("id");
 		Long id = Long.parseLong(id_str);
 
-		model = newService.findOne(id);
+		model = newsServvice.findOne(id);
 		req.setAttribute(SystemConstant.Model, model);
-		
+
 		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/update_product.jsp");
 		rd.forward(req, resp);
-		
+
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-try {
-			
-			request.setCharacterEncoding("utf-8");			
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+
+			request.setCharacterEncoding("utf-8");
 			String title = request.getParameter("title");
 			String shortdescription = request.getParameter("shortdescription");
 			String content = request.getParameter("content");
@@ -75,7 +64,6 @@ try {
 			appPath = appPath.replace('\\', '/');
 
 			info += "\n appPath:" + appPath;
-
 
 			// Thư mục để save file tải lên.
 			String fullSavePath = null;
@@ -93,7 +81,7 @@ try {
 				fileSaveDir.mkdir();
 			}
 
-			String fileName ="";
+			String fileName = "";
 			// Danh mục các phần đã upload lên (Có thể là nhiều file).
 			for (Part part : request.getParts()) {
 				fileName = extractFileName(part);
@@ -106,9 +94,9 @@ try {
 				}
 			}
 
-			//----- save to database---------------------------//	
+			// ----- save to database---------------------------//
 			newsServvice.delete(model.getId());
-			
+
 			NewsModel newsModel = new NewsModel();
 			newsModel.setCategoryId(1L);
 			newsModel.setTitle(title);
@@ -118,18 +106,19 @@ try {
 			newsModel.setPrice(price);
 			System.out.print("chieu test: " + newsModel);
 			newsModel = newsServvice.save(newsModel);
-			
+
 			// Upload thành công.
 			response.sendRedirect(request.getContextPath() + "/admin-upload-result");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Error: " + e.getMessage());
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/new/upload_product.jsp");
+			RequestDispatcher dispatcher = getServletContext()
+					.getRequestDispatcher("/views/admin/new/upload_product.jsp");
 			dispatcher.forward(request, response);
 		}
-		
+
 	}
-	
+
 	private String extractFileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
