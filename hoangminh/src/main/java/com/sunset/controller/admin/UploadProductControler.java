@@ -23,8 +23,9 @@ public class UploadProductControler extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	public static final String SAVE_DIRECTORY = "images/products";
-	String info = "";
 
+	String info = "";
+	
 	@Inject
 	private INewService newsServvice;
 
@@ -105,10 +106,11 @@ public class UploadProductControler extends HttpServlet {
 			info += "\n Upload thành công:";
 		} catch (Exception e) {
 			e.printStackTrace();
-			// request.setAttribute("errorMessage", "Error: " + e.getMessage());
+      
 			request.setAttribute("errorMessage", "Error: " + e.getMessage() + "\n" + info);
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/views/admin/new/upload_product.jsp");
+
 			dispatcher.forward(request, response);
 		}
 	}

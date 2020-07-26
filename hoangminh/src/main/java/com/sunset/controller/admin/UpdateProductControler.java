@@ -18,7 +18,7 @@ import com.sunset.model.NewsModel;
 import com.sunset.service.INewService;
 
 @WebServlet(urlPatterns = { "/admin-update-product" })
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 5, // 5MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 5, // 2MB
 maxFileSize = 1024 * 1024 * 10, // 10MB
 maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class UpdateProductControler extends HttpServlet{
@@ -30,15 +30,27 @@ public class UpdateProductControler extends HttpServlet{
 	public UpdateProductControler() {
 		super();
 	}
+	public static final String SAVE_DIRECTORY = "images/products";
+	
+	@Inject
+	private INewService newsServvice;
+	
+	NewsModel model = new NewsModel();
 	
 	@Inject	
 	private INewService newService;
+	
+	public UpdateProductControler() {
+		super();
+	}
+
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id_str = req.getParameter("id");
 		Long id = Long.parseLong(id_str);
-				
+
 		model = newService.findOne(id);
 		req.setAttribute(SystemConstant.Model, model);
 		
@@ -49,9 +61,9 @@ public class UpdateProductControler extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-
-			request.setCharacterEncoding("utf-8");
+try {
+			
+			request.setCharacterEncoding("utf-8");			
 			String title = request.getParameter("title");
 			String shortdescription = request.getParameter("shortdescription");
 			String content = request.getParameter("content");
@@ -63,6 +75,7 @@ public class UpdateProductControler extends HttpServlet{
 			appPath = appPath.replace('\\', '/');
 
 			info += "\n appPath:" + appPath;
+
 
 			// Thư mục để save file tải lên.
 			String fullSavePath = null;
@@ -77,11 +90,10 @@ public class UpdateProductControler extends HttpServlet{
 			// Tạo thư mục nếu nó không tồn tại.
 			File fileSaveDir = new File(fullSavePath);
 			if (!fileSaveDir.exists()) {
-				info += "\n !fileSaveDir.exists():";
 				fileSaveDir.mkdir();
 			}
 
-			String fileName = "";
+			String fileName ="";
 			// Danh mục các phần đã upload lên (Có thể là nhiều file).
 			for (Part part : request.getParts()) {
 				fileName = extractFileName(part);
@@ -91,13 +103,11 @@ public class UpdateProductControler extends HttpServlet{
 
 					// Ghi vào file.
 					part.write(filePath);
-					info += "\n filePath:" + filePath;
-
 				}
 			}
 
-			// ----- save to database---------------------------//
-			newService.delete(model.getId());
+			//----- save to database---------------------------//	
+			newsServvice.delete(model.getId());
 			
 			NewsModel newsModel = new NewsModel();
 			newsModel.setCategoryId(1L);
@@ -107,24 +117,20 @@ public class UpdateProductControler extends HttpServlet{
 			newsModel.setShortDescription(shortdescription);
 			newsModel.setPrice(price);
 			System.out.print("chieu test: " + newsModel);
-			newsModel = newService.save(newsModel);
-
+			newsModel = newsServvice.save(newsModel);
+			
 			// Upload thành công.
 			response.sendRedirect(request.getContextPath() + "/admin-upload-result");
-
-			info += "\n Upload thành công:";
 		} catch (Exception e) {
 			e.printStackTrace();
-			// request.setAttribute("errorMessage", "Error: " + e.getMessage());
-			request.setAttribute("errorMessage", "Error: " + e.getMessage() + "\n" + info);
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/admin/new/upload_product.jsp");
+			request.setAttribute("errorMessage", "Error: " + e.getMessage());
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/new/upload_product.jsp");
 			dispatcher.forward(request, response);
 		}
+		
 	}
-
+	
 	private String extractFileName(Part part) {
-		info += "/n extractFileName:";
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
 		for (String s : items) {
@@ -137,5 +143,4 @@ public class UpdateProductControler extends HttpServlet{
 		}
 		return null;
 	}
-	
 }
