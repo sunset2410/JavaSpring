@@ -47,6 +47,9 @@
 				    <a href='<c:url value ="/admin-upload-product" />'>
 						<i class="menu-icon fa fa-caret-right"></i> Thêm sản phẩm
 				    </a> 
+				    <a href='<c:url value ="/admin-settings" />'>
+						<i class="menu-icon fa fa-caret-right"></i> Settings
+				    </a> 
 				   <b class="arrow"></b></li>
 			</ul></li>
 	</ul>
