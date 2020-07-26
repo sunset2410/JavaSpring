@@ -22,7 +22,7 @@ import com.sunset.service.INewService;
 public class UploadProductControler extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	public static final String SAVE_DIRECTORY = "uploadDir/products";
+	public static final String SAVE_DIRECTORY = "images/products";
 	
 	@Inject
 	private INewService newsServvice;
