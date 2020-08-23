@@ -14,3 +14,10 @@ insert into user(username,password,fullname,status, roleid) values('nguyenvanb',
 insert into news(title,  categoryId) values('bai viet 1', 1);
 insert into news(title,  categoryId) values('bai viet 2', 1);
 insert into news(title,  categoryId) values('bai viet 3', 2);
+
+
+insert into category(name, code) values('Máy sấy lông chó mèo', 'may-say');
+insert into category(name, code) values('Camera các loại', 'camera');
+
+
+
