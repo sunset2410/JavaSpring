@@ -38,7 +38,8 @@ CREATE TABLE news (
   createddate TIMESTAMP NULL,
   modifieddate TIMESTAMP NULL,
   createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+  modifiedby VARCHAR(255) NULL,
+  price VARCHAR(45) NULL
 );
 
 CREATE TABLE category (
